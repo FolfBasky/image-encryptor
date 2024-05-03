@@ -1,6 +1,6 @@
 import os
 from time import sleep
-#import random
+import random
 #import string
 
 def img_to_txt(file: str) -> list:
@@ -9,7 +9,7 @@ def img_to_txt(file: str) -> list:
         r = f.read()
     return list(r)
 
-f_key = 44
+f_key = random.randint(22,99)
 def decriptor(img_txt: list, filename:str = 'file', exp:str = 'jpg'):
     'make new dectiptor file'
     img_txt_copy = img_txt.copy()  # Создаем копию списка
