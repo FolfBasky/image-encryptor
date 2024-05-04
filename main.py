@@ -9,7 +9,6 @@ def img_to_txt(file: str) -> list:
         r = f.read()
     return list(r)
 
-f_key = random.randint(22,99)
 def decriptor(img_txt: list, filename:str = 'file', exp:str = 'jpg'):
     'make new dectiptor file'
     img_txt_copy = img_txt.copy()  # Создаем копию списка
@@ -46,6 +45,14 @@ def get_unique_files():
 while True:
     sleep(0.5)
     if check_new_files():
+        f_key = input('Введите ключ. Допустимое значение: 1-255\n')
+        if not f_key.isdigit():
+            print('Введен неправильный ключ, укажите число!')
+            continue
+        f_key = int(f_key)
+        if f_key <= 0 or f_key >= 256:
+            print('Введено число вне диапазона!')
+            continue
         res = get_unique_files()
         for el in res:
             name, exp = el.split('.')
